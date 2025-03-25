@@ -8,3 +8,9 @@ downloads/
 #Informacion sensible de Spotify
 config.py
 image_metadata.json
+
+#cache de python, se genera despues de ejecutar por primera vez
+__pycache__/
+
+#token de acceso creado por cada interaccion
+.cache
