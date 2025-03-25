@@ -1,0 +1,5 @@
+*.env
+venv/
+downloads/
+config.py
+image_metadata.json
