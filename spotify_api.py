@@ -1,10 +1,17 @@
 import spotipy
+import os
 from spotipy.oauth2 import SpotifyOAuth
-from config import CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, SCOPE
+from dotenv import load_dotenv, dotenv_values
 
-sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=CLIENT_ID,client_secret=CLIENT_SECRET,redirect_uri=REDIRECT_URI,scope=SCOPE))
+#Carga de datos de .env
+load_dotenv()
+keys = dotenv_values()
 
-def get_recently_added_albums():
+#os.getenv(key)
+sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=os.getenv("CLIENT_ID"),client_secret=os.getenv("CLIENT_SECRET"),redirect_uri=os.getenv("REDIRECT_URI"),scope=os.getenv("SCOPE")))
+
+def albumsRecienGuardados():
+    # Puedes cambiar el limite de albumes
     results = sp.current_user_saved_albums(limit=50)
     albums = []
 
