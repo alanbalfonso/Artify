@@ -1,5 +1,5 @@
 # Artify - Descarga automática de portadas de álbumes de Spotify
-Artify es una extensión de Spotify que permite descargar las portadas en HD de tus álbumes favoritos guardados en la biblioteca, ordenándolos y guardándolos dentro de tu computadora para preservar el arte de las portadas musicales.
+Artify es una extensión de Spotify en terminal que permite descargar las portadas en HD de tus álbumes favoritos guardados en la biblioteca, ordenándolos y guardándolos dentro de tu computadora para preservar el arte de las portadas musicales.
 
 ## Características
 - Descarga automática de portadas de álbumes agregados recientemente.
@@ -37,7 +37,16 @@ pip install -r requirements.txt
 3. Configura los scopes necesarios en tu aplicación.
 4. Añade tu `CLIENT_ID` y `CLIENT_SECRET` en el archivo `config.py`.
 
+NOTA: El archivo `config.py` deberá verse así:
+```sh
+CLIENT_ID = "tu_client_id_aquí"
+CLIENT_SECRET = "tu_client_secret_aquí"
+REDIRECT_URI = "http://localhost:8888/callback"
+SCOPE = "user-library-read"
+```
+
 ## Uso
+Simplemente, una vez creado el archivo `config.py` y habiendo sincronizado los datos a la API de Spotify podemos empezar desde la terminal con:
 ```sh
 python main.py
 ```
