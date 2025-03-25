@@ -35,9 +35,9 @@ pip install -r requirements.txt
 1. Crea una aplicación en el [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/applications).
 2. Obtén tu `Client ID` y `Client Secret`.
 3. Configura los scopes necesarios en tu aplicación.
-4. Añade tu `CLIENT_ID` y `CLIENT_SECRET` en el archivo `config.py`.
+4. Añade tu `CLIENT_ID` y `CLIENT_SECRET` en el archivo `.env`.
 
-NOTA: El archivo `config.py` deberá verse así:
+NOTA: El archivo `.env` deberá verse así:
 ```sh
 CLIENT_ID = "tu_client_id_aquí"
 CLIENT_SECRET = "tu_client_secret_aquí"
@@ -46,7 +46,7 @@ SCOPE = "user-library-read"
 ```
 
 ## Uso
-Simplemente, una vez creado el archivo `config.py` y habiendo sincronizado los datos a la API de Spotify podemos empezar desde la terminal con:
+Simplemente, una vez creado el archivo `.env` y habiendo sincronizado los datos a la API de Spotify podemos empezar desde la terminal con:
 ```sh
 python main.py
 ```
