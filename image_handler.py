@@ -1,5 +1,4 @@
 # image_handler.py
-
 import os
 import requests
 import io
@@ -9,7 +8,7 @@ import json
 metadata_file = 'image_metadata.json'
 
 # Función para limpiar los nombres de archivo y eliminar caracteres no válidos
-def clean_filename(filename):
+def limpiarNombre(filename):
     # Lista de caracteres no válidos en los nombres de archivo
     invalid_chars = ['/', '\\', ':', '*', '?', '"', '<', '>', '|']
     
@@ -26,12 +25,12 @@ def load_metadata():
     return {}
 
 # Función para guardar los metadatos
-def save_metadata(metadata):
+def guardarMetadata(metadata):
     with open(metadata_file, 'w') as file:
         json.dump(metadata, file, indent=4)
 
 # Función para descargar la imagen del álbum y guardarla con el nombre "nombre del álbum - artista"
-def download_album_image(album_url, album_name, artist_name, save_dir="downloads"):
+def descargarCover(album_url, album_name, artist_name, save_dir="downloads"):
     response = requests.get(album_url)
     
     if response.status_code == 200:
@@ -41,7 +40,7 @@ def download_album_image(album_url, album_name, artist_name, save_dir="downloads
         
         # Crear el nombre del archivo con el formato "album_name - artist_name"
         filename = f"{album_name} - {artist_name}.jpg"
-        safe_filename = clean_filename(filename)  # Limpiar el nombre del archivo
+        safe_filename = limpiarNombre(filename)  # Limpiar el nombre del archivo
         
         file_path = os.path.join(save_dir, safe_filename)
         
@@ -60,35 +59,35 @@ def download_album_image(album_url, album_name, artist_name, save_dir="downloads
         metadata[safe_filename] = {'original_name': filename}
         
         # Guardar los metadatos
-        save_metadata(metadata)
+        guardarMetadata(metadata)
 
     else:
         print(f"Error al descargar la imagen: {response.status_code}")
 
 # Función para eliminar una imagen de la carpeta si el álbum es eliminado
-def delete_album_image(album_name, artist_name, save_dir="downloads"):
+def borrarPortada(album_name, artist_name, save_dir="downloads"):
     filename = f"{album_name} - {artist_name}.jpg"
-    safe_filename = clean_filename(filename)  # Limpiar el nombre del archivo
+    safe_filename = limpiarNombre(filename)  # Limpiar el nombre del archivo
     
-    file_path = os.path.join(save_dir, safe_filename)
+    ublicacionArchivo = os.path.join(save_dir, safe_filename)
     
     # Cargar los metadatos
     metadata = load_metadata()
 
     # Verificar si existe el archivo
-    if os.path.exists(file_path):
-        os.remove(file_path)
-        print(f"Imagen eliminada: {file_path}")
+    if os.path.exists(ublicacionArchivo):
+        os.remove(ublicacionArchivo)
+        print(f"Imagen eliminada: {ublicacionArchivo}")
         
         # Eliminar el registro de los metadatos
         if safe_filename in metadata:
             del metadata[safe_filename]
-            save_metadata(metadata)
+            guardarMetadata(metadata)
     else:
-        print(f"Imagen no encontrada para eliminar: {file_path}")
+        print(f"Imagen no encontrada para eliminar: {ublicacionArchivo}")
 
 # Función para obtener el nombre original a partir del nombre seguro
-def get_original_name(safe_filename):
+def getNombreOriginal(safe_filename):
     # Cargar los metadatos
     metadata = load_metadata()
     
