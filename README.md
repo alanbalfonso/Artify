@@ -1,5 +1,5 @@
 # Artify - Descarga automática de portadas de álbumes de Spotify
-Artify es una extensión de Spotify en terminal que permite descargar las portadas en HD de tus álbumes favoritos guardados en la biblioteca, ordenándolos y guardándolos dentro de tu computadora para preservar el arte de las portadas musicales.
+Artify es una extensión de Spotify desde la terminal que permite descargar las portadas en HD de tus álbumes favoritos guardados en la biblioteca, ordenándolos y guardándolos dentro de tu computadora para preservar el arte de las portadas musicales.
 
 ## Características
 - Descarga automática de portadas de álbumes agregados recientemente.
