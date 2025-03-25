@@ -1,5 +1,10 @@
+#Archivos y carpeta del entorno virtual
 *.env
 venv/
+
+#Carpeta creada con las portadas a descargar
 downloads/
+
+#Informacion sensible de Spotify
 config.py
 image_metadata.json
